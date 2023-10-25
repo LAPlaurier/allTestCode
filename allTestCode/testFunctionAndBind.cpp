@@ -2,12 +2,10 @@
  * std::function 作用：
  * 1. 简化调用：对C++中各种可调用实体（函数、仿函数、lambda）的封装，形成一个新的可调用的 function 对象。
  * 2. 给现有的可调用实体一种类型安全的包裹（如函数指针是类型不安全的可调用实体）
- * 
- * 
 */
 
 #include <iostream>
-#include <functional>   // std::bind()
+#include <functional>   // std::bind, std::function, std::placeholders
 
 
 /* ----- std::function ----- */
@@ -23,7 +21,6 @@ int fun1(int (*fp)(int, int), int x, int y) {   // 形参为函数指针
 }
 
 typedef int (*Ftype)(int, int);     // 定义一个函数指针类型Ftype
-
 int fun2(Ftype fp, int x, int y) {
     return fp(x, y);
 }
@@ -72,6 +69,8 @@ public:
 
     int m_data;
 };
+
+
 
 int main() {
     /* -- std::function -- */
