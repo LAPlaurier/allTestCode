@@ -6,6 +6,8 @@
 
 #include <iostream>
 #include <thread>
+#include <mutex>
+#include <atomic>
 
 
 // 基本使用
@@ -62,6 +64,41 @@ void changeValue(T& x, T val) {
     x = val;
 }
 
+// ------------------------------------------------------------------------------------
+// 多个线程
+
+int g_n = 0;
+void countNum() {
+    for (int i = 0; i < 10000; i++) {
+        g_n++;
+    }
+}
+
+std::mutex g_mtx;
+void countNumWithMutex() {
+    for (int i = 0; i < 10000; i++) {
+        g_mtx.lock();
+        g_n++;
+        g_mtx.unlock();
+    }
+}
+
+void countNumWithGuardLock() {
+    for (int i = 0; i < 10000; i++) {
+        std::lock_guard<std::mutex> lock(g_mtx);
+        g_n++;
+    }
+}
+
+// std::atomic_int an = 0;  // atomic的拷贝构造、拷贝赋值都被删除禁用
+// std::atomic<int> an(0);
+std::atomic_int an(0);
+void countNumWithAtomic() {
+    for (int i = 0; i < 10000; i++) {
+        an++;
+    }
+}
+
 int main() {
     std::thread th[10];
     int nums[10];
@@ -83,8 +120,22 @@ int main() {
 
     for (int i = 0; i < 10; i++) {
         th[i].join();
-        std::cout << nums[i] << std::endl;
+        // std::cout << nums[i] << std::endl;
     }
+
+    // -----------------------------------
+    // 多线程
+    for (std::thread &x : th) 
+        x = std::thread(countNumWithGuardLock);
+    for (std::thread &x : th) {
+        x.join();
+    }
+    // 多线程执行顺序：并发、无序  =>  多线程同时操作同一个变量，肯定出错
+    // 并发编程三要素：1.原子性 2.有序性 3.可见性
+    // std::cout << g_n << std::endl;
+    // 原子操作
+    std::cout << an << std::endl;
+
 
     return 0;
 }
