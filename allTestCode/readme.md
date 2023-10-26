@@ -6,7 +6,8 @@ std::thread, std::mutex, std::atomic, std::async, std::future, std::promise
 
 
 C++11 std::atomic使用[ref2][2]
-*CAS(compare and swap)
+
+* CAS(compare and swap)
 
 C++11 std::async使用（比较多线程方式与async异步调用）[ref3][3]
 
