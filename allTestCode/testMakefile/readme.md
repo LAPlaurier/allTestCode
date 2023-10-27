@@ -1,4 +1,3 @@
-[toc]
 ## Makefile的使用
 
 make 和 Makefile 搭配进行 **自动化编译**
