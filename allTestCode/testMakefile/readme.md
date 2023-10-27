@@ -66,5 +66,7 @@ make扫描Makefile文件时，默认执行**第一组**依赖关系和依赖方�
 
 
 [Makefile原理入门](https://juejin.cn/post/7205777393453170748)
+
 [Makefile变量、函数、模式匹配](https://juejin.cn/post/7279295129348751418)
+
 [Makefile伪目标.PHONY](https://blog.csdn.net/qq_41709234/article/details/123968462?ops_request_misc=&request_id=&biz_id=102&utm_term=.PHONY&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-123968462.nonecase&spm=1018.2226.3001.4187)
