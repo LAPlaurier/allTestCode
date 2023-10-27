@@ -10,7 +10,7 @@ CXXFLAGS += -g -O0 -std=c++17 -Wall -Wno-deprecated -Wno-unused-but-set-variable
 SOURCE_FILES = $(wildcard *.cpp)
 # $(info test_patsubst: $(patsubst %.cpp, %.o, $(SOURCE_FILES)))
 # $(info SOURCE_FILES: $(SOURCE_FILES))
-$(info test_addprefix: $(addprefix /path/to/, $(SOURCE_FILES)))
+# $(info test_addprefix: $(addprefix /path/to/, $(SOURCE_FILES)))
 # 使用模式替换功能将.cpp扩展名替换为.o来生成变量，得到对象文件列表
 OBJ_FILES = $(SOURCE_FILES:.cpp=.o)
 # $(info OBJ_FILES: $(OBJ_FILES))
