@@ -18,7 +18,7 @@ target（目标文件）: 文件1 文件2（依赖文件列表）     // 依赖�
 
 
 ##### 伪目标
-`.PHONY` 是一个伪目标，Makefile中将 `.PHONY` 放在一个目标前指明这个目标是 [伪文件目标]。作用是防止在Makefile中 定义的执行命令的目标 和 工作目录下的实际文件 出现名字冲突[.PHONY伪目标]。
+`.PHONY` 是一个伪目标，Makefile中将 `.PHONY` 放在一个目标前指明这个目标是 [伪文件目标]。作用是防止在Makefile中 定义的执行命令的目标 和 工作目录下的实际文件 出现名字冲突[3]。
 如果不用 `.PHONY` 指明clean是伪目标，当目录中有名为clean的文件时，make clean命令失效。
 
 
@@ -31,6 +31,6 @@ make扫描Makefile文件时，默认执行**第一组**依赖关系和依赖方�
 
 
 
-[1]:[makefile入门](https://juejin.cn/post/7205777393453170748)
-[2]:[makefile变量](https://juejin.cn/post/7279295129348751418)
-[.PHONY伪目标]:https://blog.csdn.net/qq_41709234/article/details/123968462?ops_request_misc=&request_id=&biz_id=102&utm_term=.PHONY&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-123968462.nonecase&spm=1018.2226.3001.4187
+[1]:https://juejin.cn/post/7205777393453170748
+[2]:https://juejin.cn/post/7279295129348751418
+[3]:https://blog.csdn.net/qq_41709234/article/details/123968462?ops_request_misc=&request_id=&biz_id=102&utm_term=.PHONY&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-123968462.nonecase&spm=1018.2226.3001.4187
